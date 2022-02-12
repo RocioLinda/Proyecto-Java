@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2022 by anonymous (http://jsbin.com/nibutabiku/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+
+<script id="jsbin-javascript">
+var precio_base = 4000
+
+var edad_18 = 0.10;// 10%
+var edad_25 = 0.20;// 20%
+var edad_50 = 0.30;// 30%
+
+var casado_18 = 0.10;// 10%
+var casado_25 = 0.20;// 20%
+var casado_50 = 0.30;// 30%
+
+var propiedad_1 = 0.15;// 15%
+var propiedad_2 = 0.25;// 25%
+var propiedad_3 = 0.35;// 35%
+
+var hijos_recargo = 0.20;// 20%
+
+var recargo_conyuge_18 = 0.10;// 0.10%
+var recargo_conyuge_25 = 0.20;//0.20%
+var recargo_conyuge_50 = 0.30;//0.30%
+
+var cargo_casado = 0;
+
+var recargo_propiedad_1 = 0.15;// 15%
+var recargo_propiedad_2 = 0.25;// 25%
+var recargo_propiedad_3 = 0.35;// 35%
+
+var cargo_propiedad = 0
+
+var recargo = 0
+var recargo_total = 0
+
+var precio_final = 0
+
+var nombre = prompt("Ingrese su nombre")
+var edad = prompt("¿Cuantos años tiene?")
+var edad_asociado = parseInt(edad)
+
+if (edad_asociado >=18){
+  
+var casado = prompt("¿Está casado actualmente?", "si/no")
+var cargo_conyuge=0;
+if("SI" == casado.toUpperCase()){
+  edad_conyuge = prompt("edad esposo/a")
+  var edad_conyuge_numero = parseInt(edad_conyuge)
+  if(edad_conyuge_numero >=18 && edad_conyuge_numero <=24){
+     cargo_conyuge = precio_base * recargo_conyuge_18
+     cargo_casado = precio_base * casado_18
+}
+  
+  if(edad_conyuge_numero >=25 && edad_conyuge_numero <=49){
+    cargo_conyuge = precio_base * recargo_conyuge_25
+    cargo_casado = precio_base * casado_25
+  }
+  
+  if(edad_conyuge_numero >=50){
+    cargo_conyuge = precio_base * recargo_conyuge_50
+    cargo_casado = precio_base * casado_50
+}
+ }
+
+var porcentaje_hijo= 0;
+var hijos = prompt("¿Tiene hijos o hijas?")
+
+var cant_hijos=0;
+var final_hijos=0;
+if("SI" == hijos.toUpperCase()){
+    cant_hijos = prompt("cantidad de hijos/as?")
+    var hijos_numero = parseInt(cant_hijos)
+     final_hijos =  hijos_numero * hijos_recargo * precio_base
+}
+ }
+
+  var propiedad = prompt("¿cuenta con propiedades?", "si/no")
+var cargo_propiedad=0;
+if("SI" == propiedad.toUpperCase()){
+  cantidad_de_propiedad = prompt("¿cuantas propiedades posee?")
+  var cantidad_de_propiedad_numero = parseInt(cantidad_de_propiedad)
+  if(cantidad_de_propiedad >=1 && cantidad_de_propiedad_numero <=2){
+     cargo_propiedad = precio_base * recargo_propiedad_1
+     cargo_propiedad = precio_base * propiedad_1
+}
+  
+  if(cantidad_de_propiedad >=2 && cantidad_de_propiedad_numero <=3){
+     cargo_propiedad = precio_base * recargo_propiedad_2
+     cargo_propiedad = precio_base * propiedad_2
+  }
+  
+  if(cantidad_de_propiedad_numero >=3){
+    cargo_propiedad = precio_base * recargo_propiedad_50
+    cargo_propiedad = precio_base * propiedad_3
+}
+  else if("NO" == casado.toUpperCase()){
+   (edad_asociado >=18 && edad <=24)
+    recargo = precio_base * edad_18
+  
+    if (edad_afiliado >=25 && edad_afiliado <=49){
+    recargo = precio_base * edad_25
+}
+ 
+if (edad_asociado >=50){
+    recargo = precio_base * edad_50 
+
+ }
+   }
+     }     
+
+else {
+  alert("el asociado debe ser mayor de edad ")
+}
+
+precio_final = precio_base + recargo + final_hijos + cargo_conyuge + cargo_casado + cargo_propiedad
+alert ("Para el asegurado "+nombre)
+alert ("sobre un precio base de Q"+precio_base)
+alert("cargo extra por hijo agregado es Q"+final_hijos)
+alert("cargo extra por conyuge es Q"+cargo_conyuge)
+alert("cargo si esta casado es Q"+cargo_casado)
+alert("si tiene propiedades es Q"+cargo_propiedad)
+alert("el precio final es de Q"+precio_final)
+
+
+</script>
+</body>
+</html>
